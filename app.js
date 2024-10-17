@@ -3,6 +3,8 @@ const Game = {
     ctx: null,
     foods: [],
     MAX_FOODS_AMOUNT: 10,
+    ate_amount: 0,
+    STUCKING_AMOUNT: 500,
     
     init: function() {
         this.canvas = $("#game")[0];
@@ -25,9 +27,12 @@ const Game = {
         this.resizeCanvas();
         window.addEventListener('resize', () => this.resizeCanvas());
 
+        this.foods = [];
+
         /* Intervals */
         setInterval(() => {
             Deer.save();
+            this.ate_amount = 0;
         }, 60 * 1000);
 
         setInterval(() => {
@@ -38,7 +43,7 @@ const Game = {
             Deer.age += 1;
             if (Deer.age >= Deer.deathAge)
             {
-                Deer.death();
+                Deer.death("老衰");
             }
         }, Deer.AGE_INTERVAL * 1000);
 
@@ -111,7 +116,8 @@ const Game = {
                 y, 
                 size: selectedFood.size, 
                 image: selectedFood.loadedImage,
-                value: selectedFood.value
+                value: selectedFood.value,
+                name: selectedFood.name
             });
         }
     },
@@ -131,6 +137,7 @@ const Game = {
 
     loadDeer: function() {
         let deerData = Deer.load();
+        this.foods = [];
         if (deerData == null || deerData.dead) {
             Deer.init();
         } else {
@@ -140,7 +147,9 @@ const Game = {
             Deer.bornTime = deerData.bornTime;
             Deer.deathAge = deerData.deathAge;
             Deer.dead = deerData.dead;
+            this.ate_amount = deerData.ate_amount;
 
+            this.changeDeerSize(deerData.size);
             this.updateDeerInfo();
         }
     }
@@ -278,6 +287,7 @@ const Deer = {
 
         this.deathAge = Math.floor(Math.random() * 6) + 18
 
+        Game.ate_amount = 0;
         Game.updateDeerInfo();
     },
 
@@ -286,9 +296,11 @@ const Deer = {
             name: this.name,
             level: this.level,
             age: this.age,
+            size: this.size,
             dead: this.dead,
             bornTime: this.bornTime,
             deathAge: this.deathAge,
+            ate_amount: Game.ate_amount,
         };
 
         localStorage.setItem("gameData", this.dead ? null : JSON.stringify(deerData));
@@ -330,8 +342,16 @@ const Deer = {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < (this.size / 2 + target.size / 2)) {
-                foods.shift();
                 Game.changeDeerSize(this.size + 0.1);
+                Game.ate_amount++;
+
+                if (Game.ate_amount > Game.STUCKING_AMOUNT)
+                {
+                    this.death(`のどに${target.name}が詰まった`);
+                    this.ate_amount = 0;
+                }
+
+                foods.shift();
             }
         }
     },
@@ -355,10 +375,11 @@ const Deer = {
         return result;
     },
 
-    death : function() {
+    death : function(reason) {
         Deer.dead = true;
         let time = Date.now() - Deer.bornTime;
-        alert(`${Deer.name}は死んでしまった！\n記録:\nレベル: ${Deer.level}\n年齢: ${Deer.age}歳\n生存時間: ${this.formatSurvivalTime(time)}\nサイズ: ${Math.floor(Deer.size * 10) / 10}`);
+        reason = reason == null ? "なし" : reason;
+        alert(`${Deer.name}は死んでしまった！\n記録:\nレベル: ${Deer.level}\n年齢: ${Deer.age}歳\n生存時間: ${this.formatSurvivalTime(time)}\nサイズ: ${Math.floor(Deer.size * 10) / 10}\n原因: ${reason}`);
         Deer.init();
     }
 }
