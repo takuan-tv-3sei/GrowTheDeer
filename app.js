@@ -5,7 +5,41 @@ const Game = {
     MAX_FOODS_AMOUNT: 10,
     ate_amount: 0,
     STUCKING_AMOUNT: 500,
+
+    /*Events*/
+    EVENT_INTERVAL: 180,
+    chinese_image: null,
+
+    EVENTS : {
+        CHINESE: 0,
+        PLASTIC: 1,
+    },
     
+    canvas: null,
+    ctx: null,
+    foods: [],
+    MAX_FOODS_AMOUNT: 10,
+    ate_amount: 0,
+    STUCKING_AMOUNT: 500,
+
+    /* Events */
+    EVENT_INTERVAL: 180,
+    chinese_image: null,
+    chinese: {
+        x: 0,
+        y: 0,
+        size: 50,
+        speed: 1.5,
+        image: null,
+        active: false,
+        touchStartTime: null // 鹿と触れた時間を記録
+    },
+
+    EVENTS: {
+        CHINESE: 0,
+        PLASTIC: 1,
+    },
+
     init: function() {
         this.canvas = $("#game")[0];
         this.ctx = this.canvas.getContext("2d");
@@ -17,9 +51,13 @@ const Game = {
         Deer.image = new Image();
         Deer.image.src = "imgs/Deer.png";
         Deer.image.onload = () => {
-            this.drawDeer()
-            this.updateDeerInfo()
+            this.drawDeer();
+            this.updateDeerInfo();
         };
+
+        // 中国人の画像をロード
+        this.chinese.image = new Image();
+        this.chinese.image.src = "imgs/Chinese.png";
 
         Deer.x = this.canvas.width / 2 - Deer.size / 2;
         Deer.y = this.canvas.height / 2 - Deer.size / 2;
@@ -41,13 +79,29 @@ const Game = {
 
         setInterval(() => {
             Deer.age += 1;
-            if (Deer.age >= Deer.deathAge)
-            {
+            if (Deer.age >= Deer.deathAge) {
                 Deer.death("老衰");
             }
         }, Deer.AGE_INTERVAL * 1000);
 
+        setInterval(() => {
+            this.fireRandomEvent();
+        }, this.EVENT_INTERVAL * 1000);
+
         this.loadDeer();
+    },
+
+    gameUpdate: function() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drawFoods();
+        this.updateDeerMovement();
+        this.updateChineseMovement();
+        this.checkChineseContact();
+        this.drawDeer();
+        this.drawChinese();
+        this.updateDeerInfo();
+
+        if (Deer.name == undefined || Deer.name == null) Deer.init();
     },
 
     resizeCanvas: function() {
@@ -61,17 +115,6 @@ const Game = {
         this.ctx.fillStyle = "black";
         this.ctx.font = "20px Arial";
         this.ctx.fillText(text, x, y);
-    },
-
-    gameUpdate : function() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.drawFoods();
-        this.updateDeerMovement();
-        this.drawDeer(); 
-        this.updateDeerInfo();
-
-        if (Deer.name == undefined || Deer.name == null)
-            Deer.init();
     },
 
     drawDeer : function() {
@@ -133,6 +176,87 @@ const Game = {
     updateDeerMovement : function() {
         Deer.move(this.foods);
         Deer.eat(this.foods);
+    },
+
+    /* Events */
+    fireRandomEvent : function() {
+        const randomIndex = Math.floor(Math.random() * this.EVENTS.length);
+        const event = this.EVENTS[randomIndex];
+        this.fireEvent(event);
+    },
+
+    fireEvent : function(event) {
+        switch(event) {
+            case this.EVENTS.CHINESE:
+                this.chinese_image = new Image();
+                this.chinese_image.src = "imgs/Chinese.png";
+                Deer.image.onload = () => {
+                    this.drawChinese();
+                };
+                break;
+
+            case this.EVENTS.PLASTIC:
+
+                break;
+        }
+    },
+
+    fireEvent: function(event) {
+        switch (event) {
+            case this.EVENTS.CHINESE:
+                this.chinese.active = true;
+                this.chinese.x = Math.random() * this.canvas.width;
+                this.chinese.y = Math.random() * this.canvas.height;
+                this.chinese.touchStartTime = null; 
+                break;
+
+            case this.EVENTS.PLASTIC:
+                
+                break;
+        }
+    },
+
+    updateChineseMovement: function() {
+        if (this.chinese.active) {
+            const dx = Deer.x - this.chinese.x;
+            const dy = Deer.y - this.chinese.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > this.chinese.speed) {
+                this.chinese.x += (dx / distance) * this.chinese.speed;
+                this.chinese.y += (dy / distance) * this.chinese.speed;
+            }
+        }
+    },
+
+    drawChinese: function() {
+        if (this.chinese.active && this.chinese.image && this.chinese.image.complete) {
+            const width = this.chinese.size;
+            const height = this.chinese.size;
+            this.ctx.drawImage(this.chinese.image, this.chinese.x - width / 2, this.chinese.y - height / 2, width, height);
+        }
+    },
+
+    checkChineseContact: function() {
+        if (this.chinese.active) {
+            const dx = (Deer.x + Deer.size / 2) - (this.chinese.x + this.chinese.size / 2);
+            const dy = (Deer.y + Deer.size / 2) - (this.chinese.y + this.chinese.size / 2);
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < (Deer.size / 2 + this.chinese.size / 2)) {
+                if (!this.chinese.touchStartTime) {
+                    this.chinese.touchStartTime = Date.now();
+                } else {
+                    const elapsed = Date.now() - this.chinese.touchStartTime;
+                    if (elapsed >= 3000) {
+                        Deer.death("中国人に蹴られた");
+                        this.chinese.active = false;
+                    }
+                }
+            } else {
+                this.chinese.touchStartTime = null;
+            }
+        }
     },
 
     loadDeer: function() {
