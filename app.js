@@ -148,12 +148,20 @@ const Game = {
         this.drawText(`サイズ: ${Math.floor(Deer.size * 10) / 10}`, 10, 120)
     },
     
-    addFood : function(e) {
+    addFood: function(e) {
+        const selectedFood = FoodSelector.getSelectedFood();
+        
+        if (selectedFood.limit && selectedFood.remaining > 0) {
+            selectedFood.remaining--;
+        } else if (selectedFood.limit && selectedFood.remaining === 0) {
+            alert("このアイテムはもう使えません！");
+            return;
+        }
+    
         if (this.foods.length < this.MAX_FOODS_AMOUNT) {
             const rect = this.canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            const selectedFood = FoodSelector.getSelectedFood();
             this.foods.push({
                 x, 
                 y, 
@@ -164,6 +172,7 @@ const Game = {
             });
         }
     },
+    
 
     drawFoods: function() {
         for (let food of this.foods) {
@@ -208,6 +217,11 @@ const Game = {
                 this.chinese.x = Math.random() * this.canvas.width;
                 this.chinese.y = Math.random() * this.canvas.height;
                 this.chinese.touchStartTime = null; 
+
+                setTimeout(() => {
+                    this.chinese.active = false;
+                    
+                }, 30000);
                 break;
 
             case this.EVENTS.PLASTIC:
@@ -284,8 +298,8 @@ const FoodSelector = {
     ctx: null,
     
     foodTypes: [
-        { name: "鹿せんべい", image: "imgs/ShikaSenbei.png", size: 20, value: 1, unlocked: true},
-        { name: "りんご", image: "imgs/Apple.png", size: 25, value: 2, unlocked: false},
+        { name: "鹿せんべい", image: "imgs/ShikaSenbei.png", size: 20, value: 1, unlocked: true, limit: null, remaining: null },
+        { name: "りんご", image: "imgs/Apple.png", size: 25, value: 2, unlocked: false, limit: 5, remaining: 5 }
     ],
     selectedFoodIndex: 0,
     size: 50,
@@ -375,6 +389,15 @@ const FoodSelector = {
                 this.ctx.drawImage(food.loadedImage, x, y, this.size, this.size);
             }
         });
+    },
+
+    unlockSpecialItem: function(itemName) {
+        const food = this.foodTypes.find(f => f.name === itemName);
+        if (food) {
+            food.unlocked = true;
+            food.remaining = food.limit;
+            this.init();
+        }
     },
 
     getSelectedFood: function() {
