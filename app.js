@@ -6,6 +6,35 @@ const Game = {
     ate_amount: 0,
     STUCKING_AMOUNT: 500,
 
+    /* Anti AutoClicker */
+    DetectCount: 0,
+    MAX_DETECT_COUNT: 10,
+    BeforeClick: 0,
+    ClickTime: 0,
+    IntervalList: [],
+    
+    checkAutoClicker: function() {
+        this.ClickTime = new Date().getTime();
+        let interval = this.ClickTime - this.BeforeClick;
+    
+        if (this.BeforeClick !== 0) {
+            this.IntervalList.push(interval);
+    
+            if (this.IntervalList.length > this.MAX_DETECT_COUNT) {
+                this.IntervalList.shift();
+            }
+    
+            if (this.IntervalList.length === this.MAX_DETECT_COUNT && this.IntervalList.every(i => i === this.IntervalList[0])) {
+                this.DetectCount++;
+            } else {
+                this.DetectCount = 0;
+            }
+        }
+    
+        this.BeforeClick = this.ClickTime;
+        return this.DetectCount >= this.MAX_DETECT_COUNT;
+    },
+
     /*Events*/
     EVENT_INTERVAL: 180,
     chinese_image: null,
@@ -55,7 +84,6 @@ const Game = {
             this.updateDeerInfo();
         };
 
-        // 中国人の画像をロード
         this.chinese.image = new Image();
         this.chinese.image.src = "imgs/Chinese.png";
 
@@ -150,7 +178,12 @@ const Game = {
     
     addFood: function(e) {
         const selectedFood = FoodSelector.getSelectedFood();
-        
+
+        if (this.checkAutoClicker()) {
+            Deer.death("オートクリックを検知しました。");
+            return;
+        }
+
         if (selectedFood.limit && selectedFood.remaining > 0) {
             selectedFood.remaining--;
         } else if (selectedFood.limit && selectedFood.remaining === 0) {
