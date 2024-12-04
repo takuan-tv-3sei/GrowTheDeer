@@ -256,7 +256,7 @@ const Game = {
                 setTimeout(() => {
                     this.chinese.active = false;
                     FoodSelector.unlockSpecialItem("黒豆", true);
-                }, 3000);
+                }, 20000);
                 break;
 
             case this.EVENTS.PLASTIC:
@@ -297,7 +297,7 @@ const Game = {
                     this.chinese.touchStartTime = Date.now();
                 } else {
                     const elapsed = Date.now() - this.chinese.touchStartTime;
-                    if (elapsed >= 3000) {
+                    if (elapsed >= 1000) {
                         Deer.death("中国人に蹴られた");
                         this.chinese.active = false;
                     }
