@@ -1,1 +1,620 @@
-const _0x36850c=_0x256a;(function(_0x57d528,_0x514f81){const _0x2ab873=_0x256a,_0x5d5f50=_0x57d528();while(!![]){try{const _0x3ec10f=-parseInt(_0x2ab873(0x111))/0x1*(-parseInt(_0x2ab873(0x168))/0x2)+-parseInt(_0x2ab873(0xfa))/0x3+-parseInt(_0x2ab873(0x16a))/0x4*(-parseInt(_0x2ab873(0x14c))/0x5)+-parseInt(_0x2ab873(0x130))/0x6+parseInt(_0x2ab873(0x148))/0x7*(-parseInt(_0x2ab873(0x140))/0x8)+-parseInt(_0x2ab873(0x108))/0x9+-parseInt(_0x2ab873(0x149))/0xa*(-parseInt(_0x2ab873(0x175))/0xb);if(_0x3ec10f===_0x514f81)break;else _0x5d5f50['push'](_0x5d5f50['shift']());}catch(_0x9dd093){_0x5d5f50['push'](_0x5d5f50['shift']());}}}(_0x4ed4,0x23e91));function _0x256a(_0x10c9df,_0x3c8095){const _0x4ed41c=_0x4ed4();return _0x256a=function(_0x256abf,_0x3199cf){_0x256abf=_0x256abf-0xf7;let _0xc3bc14=_0x4ed41c[_0x256abf];return _0xc3bc14;},_0x256a(_0x10c9df,_0x3c8095);}function _0x4ed4(){const _0x5c4fc9=['foodTypes','ready','gameData','position','remaining','handleSelection','Data\x20Saved!','MAX_FOODS_AMOUNT','clientY','getContext','396684kphwYb','EVENTS','4UeueMT','りんご','#foodSelector','width','のどに','fireEvent','drawImage','map','drawText','death','imgs/Deer.png','77PPQQNw','padding','dead','limit','sqrt','level','が詰まった','age','move','every','clientX','find','ctx','loadFoodImages','beforeunload','fillStyle','black','updateDeerMovement','clearRect','checkAutoClicker','161214czLSke','init','click','src','STUCKING_AMOUNT','parse','random','height','onerror','\x0aサイズ:\x20','size','selectedFoodIndex','facingLeft','setItem','2162493GsBgwq','log','レベル:\x20','canvas','restore','getBoundingClientRect','top','ate_amount','foods','1BRFBMZ','scale','resize','resizeCanvas','min','push','rgba(200,\x20200,\x20200,\x200.7)','addFood','shift','load','name','onload','touchStartTime','bornTime','unlocked','speed','length','fillText','save','imgs/Chinese.png','AGE_INTERVAL','imgs/Apple.png','draw','indexOf','サイズ:\x20','PLASTIC','getTime','鹿せんべい','loadedImage','absolute','fireRandomEvent','319758dFHefu','filter','chinese','MAX_DETECT_COUNT','image','right','innerWidth','drawDeer','style','now','complete','DetectCount','鹿の名前を決めてください！','left','active','このアイテムはもう使えません！','347672SheYph','ClickTime','Data\x20Loaded!','loadDeer','addEventListener','imgs/ShikaSenbei.png','floor','all','42pbfNPA','464060HlRmGQ','#game','EVENT_INTERVAL','1159835cGeamO','20px\x20Arial','時間\x20','formatSurvivalTime','fillRect','stringify','getSelectedFood','drawChinese','then','eat','updateChineseMovement','deathAge','IntervalList','BeforeClick','value','chinese_image','オートクリックを検知しました。','updateDeerInfo'];_0x4ed4=function(){return _0x5c4fc9;};return _0x4ed4();}const Game={'canvas':null,'ctx':null,'foods':[],'MAX_FOODS_AMOUNT':0xa,'ate_amount':0x0,'STUCKING_AMOUNT':0x1f4,'DetectCount':0x0,'MAX_DETECT_COUNT':0xa,'BeforeClick':0x0,'ClickTime':0x0,'IntervalList':[],'checkAutoClicker':function(){const _0x5dbff1=_0x256a;this[_0x5dbff1(0x141)]=new Date()[_0x5dbff1(0x12b)]();let _0x12f4fd=this[_0x5dbff1(0x141)]-this['BeforeClick'];return this[_0x5dbff1(0x159)]!==0x0&&(this['IntervalList'][_0x5dbff1(0x116)](_0x12f4fd),this['IntervalList'][_0x5dbff1(0x121)]>this[_0x5dbff1(0x133)]&&this[_0x5dbff1(0x158)][_0x5dbff1(0x119)](),this[_0x5dbff1(0x158)][_0x5dbff1(0x121)]===this['MAX_DETECT_COUNT']&&this[_0x5dbff1(0x158)][_0x5dbff1(0x17e)](_0x2b01c1=>_0x2b01c1===this[_0x5dbff1(0x158)][0x0])?this[_0x5dbff1(0x13b)]++:this[_0x5dbff1(0x13b)]=0x0),this[_0x5dbff1(0x159)]=this[_0x5dbff1(0x141)],this[_0x5dbff1(0x13b)]>=this[_0x5dbff1(0x133)];},'EVENT_INTERVAL':0xb4,'chinese_image':null,'EVENTS':{'CHINESE':0x0,'PLASTIC':0x1},'canvas':null,'ctx':null,'foods':[],'MAX_FOODS_AMOUNT':0xa,'ate_amount':0x0,'STUCKING_AMOUNT':0x1f4,'EVENT_INTERVAL':0xb4,'chinese_image':null,'chinese':{'x':0x0,'y':0x0,'size':0x32,'speed':1.5,'image':null,'active':![],'touchStartTime':null},'EVENTS':{'CHINESE':0x0},'init':function(){const _0x39d829=_0x256a;this[_0x39d829(0x10b)]=$(_0x39d829(0x14a))[0x0],this[_0x39d829(0x181)]=this['canvas'][_0x39d829(0x167)]('2d'),FoodSelector[_0x39d829(0xfb)](),this['canvas'][_0x39d829(0x144)](_0x39d829(0xfc),_0xa86302=>this[_0x39d829(0x118)](_0xa86302)),Deer[_0x39d829(0x134)]=new Image(),Deer[_0x39d829(0x134)][_0x39d829(0xfd)]=_0x39d829(0x174),Deer['image'][_0x39d829(0x11c)]=()=>{const _0x98f858=_0x39d829;this[_0x98f858(0x137)](),this['updateDeerInfo']();},this[_0x39d829(0x132)][_0x39d829(0x134)]=new Image(),this['chinese'][_0x39d829(0x134)][_0x39d829(0xfd)]=_0x39d829(0x124),Deer['x']=this[_0x39d829(0x10b)][_0x39d829(0x16d)]/0x2-Deer[_0x39d829(0x104)]/0x2,Deer['y']=this[_0x39d829(0x10b)]['height']/0x2-Deer[_0x39d829(0x104)]/0x2,this[_0x39d829(0x114)](),window['addEventListener'](_0x39d829(0x113),()=>this['resizeCanvas']()),this['foods']=[],setInterval(()=>{const _0x4d2462=_0x39d829;Deer[_0x4d2462(0x123)](),this['ate_amount']=0x0;},0x3c*0x3e8),setInterval(()=>{this['gameUpdate']();},0x3e8/0x3c),setInterval(()=>{const _0x5c9d26=_0x39d829;Deer[_0x5c9d26(0x17c)]+=0x1,Deer[_0x5c9d26(0x17c)]>=Deer[_0x5c9d26(0x157)]&&Deer['death']('老衰');},Deer[_0x39d829(0x125)]*0x3e8),setInterval(()=>{const _0x14c2d8=_0x39d829;this[_0x14c2d8(0x12f)]();},this[_0x39d829(0x14b)]*0x3e8),this[_0x39d829(0x143)]();},'gameUpdate':function(){const _0x567c11=_0x256a;this['ctx'][_0x567c11(0xf8)](0x0,0x0,this['canvas']['width'],this[_0x567c11(0x10b)][_0x567c11(0x101)]),this['drawFoods'](),this[_0x567c11(0xf7)](),this[_0x567c11(0x156)](),this['checkChineseContact'](),this[_0x567c11(0x137)](),this['drawChinese'](),this[_0x567c11(0x15d)]();if(Deer[_0x567c11(0x11b)]==undefined||Deer[_0x567c11(0x11b)]==null)Deer[_0x567c11(0xfb)]();},'resizeCanvas':function(){const _0x46321b=_0x256a;this[_0x46321b(0x10b)][_0x46321b(0x16d)]=window[_0x46321b(0x136)]/0x2,this[_0x46321b(0x10b)]['height']=window['innerHeight'],this[_0x46321b(0x15d)](),FoodSelector[_0x46321b(0x161)]();},'drawText':function(_0x475126,_0x57096a,_0x25456b){const _0x2c314e=_0x256a;this['ctx'][_0x2c314e(0x184)]=_0x2c314e(0x185),this[_0x2c314e(0x181)]['font']=_0x2c314e(0x14d),this['ctx'][_0x2c314e(0x122)](_0x475126,_0x57096a,_0x25456b);},'drawDeer':function(){const _0x438881=_0x256a;if(Deer[_0x438881(0x134)]&&Deer[_0x438881(0x134)]['complete']){const _0x1369fa=Deer['image'][_0x438881(0x16d)]/Deer[_0x438881(0x134)]['height'],_0x1b0a2b=Deer[_0x438881(0x104)],_0x14d59a=Deer[_0x438881(0x104)]/_0x1369fa;this['ctx']['save'](),Deer[_0x438881(0x106)]?(this[_0x438881(0x181)][_0x438881(0x112)](-0x1,0x1),this[_0x438881(0x181)]['drawImage'](Deer[_0x438881(0x134)],-Deer['x']-_0x1b0a2b,Deer['y'],_0x1b0a2b,_0x14d59a)):this[_0x438881(0x181)][_0x438881(0x170)](Deer['image'],Deer['x'],Deer['y'],_0x1b0a2b,_0x14d59a),this[_0x438881(0x181)][_0x438881(0x10c)]();}},'changeDeerSize':function(_0x4f1cda){const _0x5e115e=_0x256a;Deer[_0x5e115e(0x104)]=_0x4f1cda,this[_0x5e115e(0x137)]();},'updateDeerInfo':function(){const _0x3c2061=_0x256a;this[_0x3c2061(0x172)]('名前:\x20'+Deer['name'],0xa,0x1e),this[_0x3c2061(0x172)](_0x3c2061(0x10a)+Deer[_0x3c2061(0x17a)],0xa,0x3c),this[_0x3c2061(0x172)]('年齢:\x20'+Deer['age']+'歳',0xa,0x5a),this[_0x3c2061(0x172)](_0x3c2061(0x129)+Math[_0x3c2061(0x146)](Deer[_0x3c2061(0x104)]*0xa)/0xa,0xa,0x78);},'addFood':function(_0x38759b){const _0x2e89df=_0x256a,_0x3254e9=FoodSelector[_0x2e89df(0x152)]();if(this[_0x2e89df(0xf9)]()){Deer[_0x2e89df(0x173)](_0x2e89df(0x15c));return;}if(_0x3254e9[_0x2e89df(0x178)]&&_0x3254e9['remaining']>0x0)_0x3254e9['remaining']--;else{if(_0x3254e9['limit']&&_0x3254e9['remaining']===0x0){alert(_0x2e89df(0x13f));return;}}if(this['foods'][_0x2e89df(0x121)]<this[_0x2e89df(0x165)]){const _0x583c29=this[_0x2e89df(0x10b)][_0x2e89df(0x10d)](),_0x5b1c1c=_0x38759b[_0x2e89df(0x17f)]-_0x583c29[_0x2e89df(0x13d)],_0x59f4a4=_0x38759b[_0x2e89df(0x166)]-_0x583c29[_0x2e89df(0x10e)];this[_0x2e89df(0x110)]['push']({'x':_0x5b1c1c,'y':_0x59f4a4,'size':_0x3254e9[_0x2e89df(0x104)],'image':_0x3254e9[_0x2e89df(0x12d)],'value':_0x3254e9[_0x2e89df(0x15a)],'name':_0x3254e9[_0x2e89df(0x11b)]});}},'drawFoods':function(){const _0x2fe11b=_0x256a;for(let _0x9d891d of this['foods']){_0x9d891d[_0x2fe11b(0x134)]&&_0x9d891d['image'][_0x2fe11b(0x13a)]&&this[_0x2fe11b(0x181)][_0x2fe11b(0x170)](_0x9d891d[_0x2fe11b(0x134)],_0x9d891d['x']-_0x9d891d[_0x2fe11b(0x104)]/0x2,_0x9d891d['y']-_0x9d891d[_0x2fe11b(0x104)]/0x2,_0x9d891d[_0x2fe11b(0x104)],_0x9d891d[_0x2fe11b(0x104)]);}},'updateDeerMovement':function(){const _0x32bac5=_0x256a;Deer[_0x32bac5(0x17d)](this['foods']),Deer[_0x32bac5(0x155)](this[_0x32bac5(0x110)]);},'fireRandomEvent':function(){const _0x44a10b=_0x256a,_0x43f480=Math[_0x44a10b(0x146)](Math[_0x44a10b(0x100)]()*this[_0x44a10b(0x169)]['length']),_0xcef344=this['EVENTS'][_0x43f480];this[_0x44a10b(0x16f)](_0xcef344);},'fireEvent':function(_0x3c6159){const _0x2ee7df=_0x256a;switch(_0x3c6159){case this[_0x2ee7df(0x169)]['CHINESE']:this[_0x2ee7df(0x15b)]=new Image(),this[_0x2ee7df(0x15b)][_0x2ee7df(0xfd)]=_0x2ee7df(0x124),Deer[_0x2ee7df(0x134)]['onload']=()=>{const _0x2d4491=_0x2ee7df;this[_0x2d4491(0x153)]();};break;case this[_0x2ee7df(0x169)][_0x2ee7df(0x12a)]:break;}},'fireEvent':function(_0x128b00){const _0x379a9b=_0x256a;switch(_0x128b00){case this[_0x379a9b(0x169)]['CHINESE']:this[_0x379a9b(0x132)][_0x379a9b(0x13e)]=!![],this[_0x379a9b(0x132)]['x']=Math[_0x379a9b(0x100)]()*this[_0x379a9b(0x10b)]['width'],this[_0x379a9b(0x132)]['y']=Math[_0x379a9b(0x100)]()*this[_0x379a9b(0x10b)]['height'],this['chinese'][_0x379a9b(0x11d)]=null,setTimeout(()=>{const _0x33bd54=_0x379a9b;this[_0x33bd54(0x132)]['active']=![];},0x7530);break;case this[_0x379a9b(0x169)]['PLASTIC']:break;}},'updateChineseMovement':function(){const _0x5592b1=_0x256a;if(this['chinese'][_0x5592b1(0x13e)]){const _0x44ee54=Deer['x']-this['chinese']['x'],_0x11cfaf=Deer['y']-this[_0x5592b1(0x132)]['y'],_0x47dcae=Math['sqrt'](_0x44ee54*_0x44ee54+_0x11cfaf*_0x11cfaf);_0x47dcae>this[_0x5592b1(0x132)][_0x5592b1(0x120)]&&(this[_0x5592b1(0x132)]['x']+=_0x44ee54/_0x47dcae*this[_0x5592b1(0x132)][_0x5592b1(0x120)],this[_0x5592b1(0x132)]['y']+=_0x11cfaf/_0x47dcae*this[_0x5592b1(0x132)]['speed']);}},'drawChinese':function(){const _0xdb6ca8=_0x256a;if(this[_0xdb6ca8(0x132)][_0xdb6ca8(0x13e)]&&this[_0xdb6ca8(0x132)]['image']&&this[_0xdb6ca8(0x132)][_0xdb6ca8(0x134)][_0xdb6ca8(0x13a)]){const _0x1d5835=this['chinese'][_0xdb6ca8(0x104)],_0x4db1a3=this[_0xdb6ca8(0x132)]['size'];this[_0xdb6ca8(0x181)][_0xdb6ca8(0x170)](this[_0xdb6ca8(0x132)]['image'],this['chinese']['x']-_0x1d5835/0x2,this[_0xdb6ca8(0x132)]['y']-_0x4db1a3/0x2,_0x1d5835,_0x4db1a3);}},'checkChineseContact':function(){const _0x35ecdb=_0x256a;if(this[_0x35ecdb(0x132)][_0x35ecdb(0x13e)]){const _0x4d3e71=Deer['x']+Deer[_0x35ecdb(0x104)]/0x2-(this[_0x35ecdb(0x132)]['x']+this[_0x35ecdb(0x132)][_0x35ecdb(0x104)]/0x2),_0x3bc508=Deer['y']+Deer[_0x35ecdb(0x104)]/0x2-(this[_0x35ecdb(0x132)]['y']+this['chinese'][_0x35ecdb(0x104)]/0x2),_0x1a12db=Math[_0x35ecdb(0x179)](_0x4d3e71*_0x4d3e71+_0x3bc508*_0x3bc508);if(_0x1a12db<Deer['size']/0x2+this[_0x35ecdb(0x132)][_0x35ecdb(0x104)]/0x2){if(!this['chinese'][_0x35ecdb(0x11d)])this[_0x35ecdb(0x132)][_0x35ecdb(0x11d)]=Date[_0x35ecdb(0x139)]();else{const _0x414c68=Date[_0x35ecdb(0x139)]()-this['chinese'][_0x35ecdb(0x11d)];_0x414c68>=0xbb8&&(Deer[_0x35ecdb(0x173)]('中国人に蹴られた'),this[_0x35ecdb(0x132)][_0x35ecdb(0x13e)]=![]);}}else this[_0x35ecdb(0x132)][_0x35ecdb(0x11d)]=null;}},'loadDeer':function(){const _0x220eb6=_0x256a;let _0x53ab4e=Deer[_0x220eb6(0x11a)]();this['foods']=[],_0x53ab4e==null||_0x53ab4e[_0x220eb6(0x177)]?Deer['init']():(Deer[_0x220eb6(0x11b)]=_0x53ab4e[_0x220eb6(0x11b)],Deer['level']=_0x53ab4e[_0x220eb6(0x17a)],Deer[_0x220eb6(0x17c)]=_0x53ab4e[_0x220eb6(0x17c)],Deer[_0x220eb6(0x11e)]=_0x53ab4e[_0x220eb6(0x11e)],Deer[_0x220eb6(0x157)]=_0x53ab4e[_0x220eb6(0x157)],Deer[_0x220eb6(0x177)]=_0x53ab4e['dead'],this[_0x220eb6(0x10f)]=_0x53ab4e[_0x220eb6(0x10f)],this['changeDeerSize'](_0x53ab4e['size']),this['updateDeerInfo']());}},FoodSelector={'canvas':null,'ctx':null,'foodTypes':[{'name':_0x36850c(0x12c),'image':_0x36850c(0x145),'size':0x14,'value':0x1,'unlocked':!![],'limit':null,'remaining':null},{'name':_0x36850c(0x16b),'image':_0x36850c(0x126),'size':0x19,'value':0x2,'unlocked':![],'limit':0x5,'remaining':0x5}],'selectedFoodIndex':0x0,'size':0x32,'padding':0xa,'init':function(){const _0xb6c6c=_0x36850c;this['canvas']=$(_0xb6c6c(0x16c))[0x0],this[_0xb6c6c(0x181)]=this[_0xb6c6c(0x10b)]['getContext']('2d'),this[_0xb6c6c(0x182)]()[_0xb6c6c(0x154)](()=>{const _0x346aaa=_0xb6c6c;this['initCanvas'](),this[_0x346aaa(0x127)]();}),this['canvas'][_0xb6c6c(0x144)](_0xb6c6c(0xfc),_0x334b11=>this[_0xb6c6c(0x163)](_0x334b11));},'loadFoodImages':function(){const _0x58927e=_0x36850c,_0xe7cabc=this[_0x58927e(0x15e)][_0x58927e(0x131)](_0x2cc873=>_0x2cc873[_0x58927e(0x11f)])[_0x58927e(0x171)](_0x443d8d=>{return new Promise((_0x40607e,_0x27bbc6)=>{const _0x23c765=_0x256a,_0x54a357=new Image();_0x54a357[_0x23c765(0x11c)]=()=>{const _0x54f0d0=_0x23c765;_0x443d8d[_0x54f0d0(0x12d)]=_0x54a357,_0x40607e();},_0x54a357[_0x23c765(0x102)]=_0x27bbc6,_0x54a357[_0x23c765(0xfd)]=_0x443d8d[_0x23c765(0x134)];});});return Promise[_0x58927e(0x147)](_0xe7cabc);},'initCanvas':function(){const _0x174f01=_0x36850c,_0x385eaa=this[_0x174f01(0x15e)]['filter'](_0x333246=>_0x333246['unlocked']),_0x1e5c8a=_0x385eaa[_0x174f01(0x121)]*(this[_0x174f01(0x104)]+this[_0x174f01(0x176)])+this[_0x174f01(0x176)];this[_0x174f01(0x10b)][_0x174f01(0x16d)]=_0x1e5c8a,this[_0x174f01(0x10b)][_0x174f01(0x101)]=this[_0x174f01(0x104)]+0x2*this[_0x174f01(0x176)],this[_0x174f01(0x161)]();},'position':function(){const _0x295b54=_0x36850c,_0x2add3b=$(_0x295b54(0x14a))[0x0],_0x6b569a=_0x2add3b[_0x295b54(0x10d)]();this[_0x295b54(0x10b)]['style'][_0x295b54(0x161)]=_0x295b54(0x12e),this[_0x295b54(0x10b)][_0x295b54(0x138)][_0x295b54(0x10e)]=_0x6b569a[_0x295b54(0x10e)]+0xa+'px',this[_0x295b54(0x10b)]['style'][_0x295b54(0x13d)]=_0x6b569a[_0x295b54(0x135)]+0xa+'px';const _0x3b4f2f=window[_0x295b54(0x136)]-_0x6b569a[_0x295b54(0x135)]-0x14,_0x1d2e3f=this[_0x295b54(0x15e)][_0x295b54(0x131)](_0x30a6b9=>_0x30a6b9['unlocked']),_0x23019d=_0x1d2e3f[_0x295b54(0x121)]*(this[_0x295b54(0x104)]+this[_0x295b54(0x176)])+this[_0x295b54(0x176)];this[_0x295b54(0x10b)][_0x295b54(0x16d)]=Math[_0x295b54(0x115)](_0x3b4f2f,_0x23019d),this[_0x295b54(0x10b)][_0x295b54(0x101)]=this[_0x295b54(0x104)]+0x2*this['padding'],this[_0x295b54(0x127)]();},'handleSelection':function(_0x443abf){const _0x42825b=_0x36850c,_0x3d7507=this[_0x42825b(0x10b)][_0x42825b(0x10d)](),_0xdbadda=_0x443abf[_0x42825b(0x17f)]-_0x3d7507[_0x42825b(0x13d)],_0x40777f=this[_0x42825b(0x15e)][_0x42825b(0x131)](_0x513f16=>_0x513f16[_0x42825b(0x11f)]),_0x50d677=Math['floor'](_0xdbadda/(this[_0x42825b(0x104)]+this[_0x42825b(0x176)]));_0x50d677>=0x0&&_0x50d677<_0x40777f[_0x42825b(0x121)]&&(this[_0x42825b(0x105)]=this['foodTypes'][_0x42825b(0x128)](_0x40777f[_0x50d677]),this[_0x42825b(0x127)]());},'draw':function(){const _0x44a7f1=_0x36850c;this['ctx'][_0x44a7f1(0xf8)](0x0,0x0,this[_0x44a7f1(0x10b)][_0x44a7f1(0x16d)],this[_0x44a7f1(0x10b)][_0x44a7f1(0x101)]),this[_0x44a7f1(0x181)][_0x44a7f1(0x184)]=_0x44a7f1(0x117),this[_0x44a7f1(0x181)][_0x44a7f1(0x150)](0x0,0x0,this['canvas'][_0x44a7f1(0x16d)],this[_0x44a7f1(0x10b)]['height']);const _0x56fac9=this[_0x44a7f1(0x15e)]['filter'](_0x2a5cb8=>_0x2a5cb8['unlocked']);_0x56fac9['forEach']((_0x28d229,_0x2ae973)=>{const _0x34e68e=_0x44a7f1,_0x3c1392=_0x2ae973*(this[_0x34e68e(0x104)]+this[_0x34e68e(0x176)])+this[_0x34e68e(0x176)],_0x4a33dc=this[_0x34e68e(0x176)];_0x28d229===this[_0x34e68e(0x15e)][this[_0x34e68e(0x105)]]&&(this[_0x34e68e(0x181)]['fillStyle']='rgba(100,\x20100,\x20255,\x200.5)',this[_0x34e68e(0x181)][_0x34e68e(0x150)](_0x3c1392-0x2,_0x4a33dc-0x2,this[_0x34e68e(0x104)]+0x4,this['size']+0x4)),_0x28d229['loadedImage']&&this[_0x34e68e(0x181)][_0x34e68e(0x170)](_0x28d229[_0x34e68e(0x12d)],_0x3c1392,_0x4a33dc,this[_0x34e68e(0x104)],this[_0x34e68e(0x104)]);});},'unlockSpecialItem':function(_0x235d42){const _0x5e23be=_0x36850c,_0x36b9bf=this['foodTypes'][_0x5e23be(0x180)](_0x5ee152=>_0x5ee152[_0x5e23be(0x11b)]===_0x235d42);_0x36b9bf&&(_0x36b9bf[_0x5e23be(0x11f)]=!![],_0x36b9bf[_0x5e23be(0x162)]=_0x36b9bf[_0x5e23be(0x178)],this['init']());},'getSelectedFood':function(){const _0x1dc355=_0x36850c;return this[_0x1dc355(0x15e)][this[_0x1dc355(0x105)]];}},Deer={'name':null,'level':0x0,'age':0x0,'bornTime':null,'deathAge':null,'dead':![],'facingLeft':![],'AGE_INTERVAL':0xb4,'size':0x32,'image':null,'x':0x0,'y':0x0,'speed':0x2,'init':function(){const _0x3d8e9d=_0x36850c;this[_0x3d8e9d(0x11b)]=prompt(_0x3d8e9d(0x13c)),this['level']=0x0,this[_0x3d8e9d(0x17c)]=0x0,this[_0x3d8e9d(0x11e)]=Date[_0x3d8e9d(0x139)](),this[_0x3d8e9d(0x104)]=0x32,this[_0x3d8e9d(0x177)]=![],this['deathAge']=Math[_0x3d8e9d(0x146)](Math[_0x3d8e9d(0x100)]()*0x6)+0x12,Game[_0x3d8e9d(0x10f)]=0x0,Game[_0x3d8e9d(0x15d)]();},'save':function(){const _0x50b53a=_0x36850c;let _0x258ea4={'name':this[_0x50b53a(0x11b)],'level':this[_0x50b53a(0x17a)],'age':this[_0x50b53a(0x17c)],'size':this['size'],'dead':this[_0x50b53a(0x177)],'bornTime':this[_0x50b53a(0x11e)],'deathAge':this['deathAge'],'ate_amount':Game['ate_amount']};localStorage[_0x50b53a(0x107)](_0x50b53a(0x160),this['dead']?null:JSON[_0x50b53a(0x151)](_0x258ea4)),console['log'](_0x50b53a(0x164));},'load':function(){const _0xcf04=_0x36850c;let _0x3993c5=JSON[_0xcf04(0xff)](localStorage['getItem'](_0xcf04(0x160)));return console[_0xcf04(0x109)](_0xcf04(0x142)),console[_0xcf04(0x109)](_0x3993c5),_0x3993c5;},'move':function(_0x227fbc){const _0x88ecf5=_0x36850c;if(_0x227fbc['length']>0x0){const _0xe2d621=_0x227fbc[0x0],_0x3bd6f7=_0xe2d621['x']-(this['x']+this[_0x88ecf5(0x104)]/0x2),_0x545e49=_0xe2d621['y']-(this['y']+this[_0x88ecf5(0x104)]/0x2),_0x567188=Math[_0x88ecf5(0x179)](_0x3bd6f7*_0x3bd6f7+_0x545e49*_0x545e49);if(_0x567188>this['speed']){const _0x391116=this['x'];this['x']+=_0x3bd6f7/_0x567188*this['speed'],this['y']+=_0x545e49/_0x567188*this['speed'],this['facingLeft']=this['x']<_0x391116;}else this['x']=_0xe2d621['x']-this[_0x88ecf5(0x104)]/0x2,this['y']=_0xe2d621['y']-this['size']/0x2;}},'eat':function(_0x20795f){const _0x32379d=_0x36850c;if(_0x20795f[_0x32379d(0x121)]>0x0){const _0x2d5e92=_0x20795f[0x0],_0x44b2f7=_0x2d5e92['x']-(this['x']+this[_0x32379d(0x104)]/0x2),_0x2e51b3=_0x2d5e92['y']-(this['y']+this[_0x32379d(0x104)]/0x2),_0x4dcd18=Math[_0x32379d(0x179)](_0x44b2f7*_0x44b2f7+_0x2e51b3*_0x2e51b3);_0x4dcd18<this['size']/0x2+_0x2d5e92[_0x32379d(0x104)]/0x2&&(Game['changeDeerSize'](this[_0x32379d(0x104)]+0.1),Game[_0x32379d(0x10f)]++,Game[_0x32379d(0x10f)]>Game[_0x32379d(0xfe)]&&(this[_0x32379d(0x173)](_0x32379d(0x16e)+_0x2d5e92[_0x32379d(0x11b)]+_0x32379d(0x17b)),this[_0x32379d(0x10f)]=0x0),_0x20795f[_0x32379d(0x119)]());}},'formatSurvivalTime':function(_0x27619d){const _0x3c5c04=_0x36850c,_0xcf5e0c=Math[_0x3c5c04(0x146)](_0x27619d/0x3e8),_0x344249=Math['floor'](_0xcf5e0c/0x3c),_0x2129b1=Math['floor'](_0x344249/0x3c),_0x2253a2=Math['floor'](_0x2129b1/0x18),_0x9de137=_0x2129b1%0x18,_0x21e773=_0x344249%0x3c,_0x2dc24d=_0xcf5e0c%0x3c;let _0x50dea8='';if(_0x2253a2>0x0)_0x50dea8+=_0x2253a2+'日\x20';if(_0x9de137>0x0||_0x2253a2>0x0)_0x50dea8+=_0x9de137+_0x3c5c04(0x14e);if(_0x21e773>0x0||_0x9de137>0x0||_0x2253a2>0x0)_0x50dea8+=_0x21e773+'分\x20';return _0x50dea8+=_0x2dc24d+'秒',_0x50dea8;},'death':function(_0x40e8b9){const _0x462254=_0x36850c;Deer[_0x462254(0x177)]=!![];let _0x2a4fcb=Date[_0x462254(0x139)]()-Deer[_0x462254(0x11e)];_0x40e8b9=_0x40e8b9==null?'なし':_0x40e8b9,alert(Deer[_0x462254(0x11b)]+'は死んでしまった！\x0a記録:\x0aレベル:\x20'+Deer[_0x462254(0x17a)]+'\x0a年齢:\x20'+Deer[_0x462254(0x17c)]+'歳\x0a生存時間:\x20'+this[_0x462254(0x14f)](_0x2a4fcb)+_0x462254(0x103)+Math[_0x462254(0x146)](Deer['size']*0xa)/0xa+'\x0a原因:\x20'+_0x40e8b9),Deer['init']();}};$(document)[_0x36850c(0x15f)](function(){Game['init']();}),$(window)['on'](_0x36850c(0x183),function(){const _0x3befe6=_0x36850c;Deer[_0x3befe6(0x123)]();});
+const Game = {
+    canvas: null,
+    ctx: null,
+    foods: [],
+    MAX_FOODS_AMOUNT: 10,
+    ate_amount: 0,
+    STUCKING_AMOUNT: 500,
+
+    /* Anti AutoClicker */
+    DetectCount: 0,
+    MAX_DETECT_COUNT: 10,
+    BeforeClick: 0,
+    ClickTime: 0,
+    IntervalList: [],
+    
+    checkAutoClicker: function() {
+        this.ClickTime = new Date().getTime();
+        let interval = this.ClickTime - this.BeforeClick;
+    
+        if (this.BeforeClick !== 0) {
+            this.IntervalList.push(interval);
+    
+            if (this.IntervalList.length > this.MAX_DETECT_COUNT) {
+                this.IntervalList.shift();
+            }
+    
+            if (this.IntervalList.length === this.MAX_DETECT_COUNT && this.IntervalList.every(i => i === this.IntervalList[0])) {
+                this.DetectCount++;
+            } else {
+                this.DetectCount = 0;
+            }
+        }
+    
+        this.BeforeClick = this.ClickTime;
+        return this.DetectCount >= this.MAX_DETECT_COUNT;
+    },
+
+    /*Events*/
+    EVENT_INTERVAL: 180,
+    chinese_image: null,
+
+    EVENTS : [
+        CHINESE = 0,
+        PLASTIC = 1,
+    ],
+    
+    canvas: null,
+    ctx: null,
+    foods: [],
+    MAX_FOODS_AMOUNT: 10,
+    ate_amount: 0,
+    STUCKING_AMOUNT: 500,
+
+    /* Events */
+    EVENT_INTERVAL: 180,
+    chinese_image: null,
+    chinese: {
+        x: 0,
+        y: 0,
+        size: 50,
+        speed: 1.5,
+        image: null,
+        active: false,
+        touchStartTime: null
+    },
+
+    EVENTS: {
+        CHINESE: 0,
+        //PLASTIC: 1,
+    },
+
+    init: function() {
+        this.canvas = $("#game")[0];
+        this.ctx = this.canvas.getContext("2d");
+
+        FoodSelector.init();
+        GameLog.init();
+
+        this.canvas.addEventListener('click', (e) => this.addFood(e));
+
+        Deer.image = new Image();
+        Deer.image.src = "imgs/Deer.png";
+        Deer.image.onload = () => {
+            this.drawDeer();
+            this.updateDeerInfo();
+        };
+
+        this.chinese.image = new Image();
+        this.chinese.image.src = "imgs/Chinese.png";
+
+        Deer.x = this.canvas.width / 2 - Deer.size / 2;
+        Deer.y = this.canvas.height / 2 - Deer.size / 2;
+
+        this.resizeCanvas();
+        window.addEventListener('resize', () => this.resizeCanvas());
+
+        this.foods = [];
+
+        /* Intervals */
+        setInterval(() => {
+            Deer.save();
+            this.ate_amount = 0;
+        }, 60 * 1000);
+
+        setInterval(() => {
+            this.gameUpdate();
+        }, 1000 / 60);
+
+        setInterval(() => {
+            Deer.age += 1;
+            if (Deer.age >= Deer.deathAge) {
+                Deer.death("老衰");
+            }
+        }, Deer.AGE_INTERVAL * 1000);
+
+        setInterval(() => {
+            this.fireRandomEvent();
+        }, this.EVENT_INTERVAL * 1000);
+
+        this.loadDeer();
+    },
+
+    gameUpdate: function() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drawFoods();
+        this.updateDeerMovement();
+        this.updateChineseMovement();
+        this.checkChineseContact();
+        this.drawDeer();
+        this.drawChinese();
+        this.updateDeerInfo();
+
+        if (Deer.name == undefined || Deer.name == null) Deer.init();
+    },
+
+    resizeCanvas: function() {
+        this.canvas.width = window.innerWidth / 2;
+        this.canvas.height = window.innerHeight;
+        this.updateDeerInfo();
+        FoodSelector.position();
+    },
+
+    drawText : function(text, x, y) {
+        this.ctx.fillStyle = "black";
+        this.ctx.font = "20px Arial";
+        this.ctx.fillText(text, x, y);
+    },
+
+    drawDeer : function() {
+        if (Deer.image && Deer.image.complete) {
+            const aspectRatio = Deer.image.width / Deer.image.height;
+            const width = Deer.size;
+            const height = Deer.size / aspectRatio;
+
+            this.ctx.save();
+
+            if (Deer.facingLeft) {
+                this.ctx.scale(-1, 1);
+                this.ctx.drawImage(Deer.image, -Deer.x - width, Deer.y, width, height);
+            } else {
+                this.ctx.drawImage(Deer.image, Deer.x, Deer.y, width, height);
+            }
+
+            this.ctx.restore();
+        }
+    },
+
+    changeDeerSize : function(size) {
+        Deer.size = size;
+        this.drawDeer()
+    },
+
+    updateDeerInfo : function() {
+        this.drawText(`名前: ${Deer.name}`, 10, 30);
+        this.drawText(`レベル: ${Deer.level}`, 10, 60);
+        this.drawText(`年齢: ${Deer.age}歳`, 10, 90);
+        this.drawText(`サイズ: ${Math.floor(Deer.size * 10) / 10}`, 10, 120)
+    },
+    
+    addFood: function(e) {
+        const selectedFood = FoodSelector.getSelectedFood();
+
+        if (this.checkAutoClicker()) {
+            Deer.death("オートクリックを検知しました。");
+            return;
+        }
+
+        if (selectedFood.limit && selectedFood.remaining > 0) {
+            selectedFood.remaining--;
+        } else if (selectedFood.limit && selectedFood.remaining === 0) {
+            FoodSelector.unlockSpecialItem("黒豆", false);
+            return;
+        }
+    
+        if (this.foods.length < this.MAX_FOODS_AMOUNT && selectedFood.unlocked) {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            this.foods.push({
+                x, 
+                y, 
+                size: selectedFood.size, 
+                image: selectedFood.loadedImage,
+                value: selectedFood.value,
+                name: selectedFood.name
+            });
+        }
+    },
+    
+
+    drawFoods: function() {
+        for (let food of this.foods) {
+            if (food.image && food.image.complete) {
+                this.ctx.drawImage(food.image, food.x - food.size/2, food.y - food.size/2, food.size, food.size);
+            }
+        }
+    },
+
+    updateDeerMovement : function() {
+        Deer.move(this.foods);
+        Deer.eat(this.foods);
+    },
+
+    /* Events */
+    fireRandomEvent : function() {
+        const eventsKeys = Object.keys(this.EVENTS);
+        const randomIndex = Math.floor(Math.random() * eventsKeys.length);
+        const event = this.EVENTS[eventsKeys[randomIndex]];
+        this.fireEvent(event);
+    },
+
+    fireEvent : function(event) {
+        switch(event) {
+            case this.EVENTS.CHINESE:
+                this.chinese_image = new Image();
+                this.chinese_image.src = "imgs/Chinese.png";
+                Deer.image.onload = () => {
+                    this.drawChinese();
+                };
+                break;
+
+            case this.EVENTS.PLASTIC:
+
+                break;
+        }
+    },
+
+    fireEvent: function(event) {
+        switch (event) {
+            case this.EVENTS.CHINESE:
+                this.chinese.active = true;
+                this.chinese.x = Math.random() * this.canvas.width;
+                this.chinese.y = Math.random() * this.canvas.height;
+                this.chinese.touchStartTime = null; 
+
+                setTimeout(() => {
+                    this.chinese.active = false;
+                    FoodSelector.unlockSpecialItem("黒豆", true);
+                }, 3000);
+                break;
+
+            case this.EVENTS.PLASTIC:
+                
+                break;
+        }
+    },
+
+    updateChineseMovement: function() {
+        if (this.chinese.active) {
+            const dx = Deer.x - this.chinese.x;
+            const dy = Deer.y - this.chinese.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > this.chinese.speed) {
+                this.chinese.x += (dx / distance) * this.chinese.speed;
+                this.chinese.y += (dy / distance) * this.chinese.speed;
+            }
+        }
+    },
+
+    drawChinese: function() {
+        if (this.chinese.active && this.chinese.image && this.chinese.image.complete) {
+            const width = this.chinese.size;
+            const height = this.chinese.size;
+            this.ctx.drawImage(this.chinese.image, this.chinese.x - width / 2, this.chinese.y - height / 2, width, height);
+        }
+    },
+
+    checkChineseContact: function() {
+        if (this.chinese.active) {
+            const dx = (Deer.x + Deer.size / 2) - (this.chinese.x + this.chinese.size / 2);
+            const dy = (Deer.y + Deer.size / 2) - (this.chinese.y + this.chinese.size / 2);
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < (Deer.size / 2 + this.chinese.size / 2)) {
+                if (!this.chinese.touchStartTime) {
+                    this.chinese.touchStartTime = Date.now();
+                } else {
+                    const elapsed = Date.now() - this.chinese.touchStartTime;
+                    if (elapsed >= 3000) {
+                        Deer.death("中国人に蹴られた");
+                        this.chinese.active = false;
+                    }
+                }
+            } else {
+                this.chinese.touchStartTime = null;
+            }
+        }
+    },
+
+    loadDeer: function() {
+        let deerData = Deer.load();
+        this.foods = [];
+        if (deerData == null || deerData.dead) {
+            Deer.init();
+        } else {
+            Deer.name = deerData.name;
+            Deer.level = deerData.level;
+            Deer.age = deerData.age;
+            Deer.bornTime = deerData.bornTime;
+            Deer.deathAge = deerData.deathAge;
+            Deer.dead = deerData.dead;
+            this.ate_amount = deerData.ate_amount;
+
+            this.changeDeerSize(deerData.size);
+            this.updateDeerInfo();
+        }
+    }
+}
+
+const FoodSelector = {
+    canvas: null,
+    ctx: null,
+    
+    foodTypes: [
+        { name: "鹿せんべい", image: "imgs/ShikaSenbei.png", size: 20, value: 1, unlocked: true, limit: null, remaining: null },
+        { name: "りんご", image: "imgs/Apple.png", size: 25, value: 2, unlocked: false, limit: 5, remaining: 5 },
+        { name: "黒豆", image: "imgs/Kuromame.png", size: 30, value: 5, unlocked: false, limit: 5, remaining: 5 }
+    ],
+    selectedFoodIndex: 0,
+    size: 50,
+    padding: 10,
+
+    init: function() {
+        this.canvas = $("#foodSelector")[0];
+        this.ctx = this.canvas.getContext("2d");
+
+        this.loadFoodImages().then(() => {
+            this.initCanvas();
+            this.draw();
+        });
+
+        this.canvas.addEventListener('click', (e) => this.handleSelection(e));
+    },
+
+    loadFoodImages: function() {
+        const promises = this.foodTypes.filter(food => food.unlocked).map(food => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => {
+                    food.loadedImage = img;
+                    resolve();
+                };
+                img.onerror = reject;
+                img.src = food.image;
+            });
+        });
+        return Promise.all(promises);
+    },
+
+    initCanvas: function() {
+        const unlockedFoods = this.foodTypes.filter(food => food.unlocked);
+        const totalWidth = unlockedFoods.length * (this.size + this.padding) + this.padding;
+        this.canvas.width = totalWidth;
+        this.canvas.height = this.size + 2 * this.padding;
+        this.position();
+    },
+
+    position: function() {
+        const gameCanvas = $("#game")[0];
+        const gameRect = gameCanvas.getBoundingClientRect();
+        
+        this.canvas.style.position = 'absolute';
+        this.canvas.style.top = `${gameRect.top + 10}px`;
+        this.canvas.style.left = `${gameRect.right + 10}px`;
+
+        const availableWidth = window.innerWidth - gameRect.right - 20;
+
+        const unlockedFoods = this.foodTypes.filter(food => food.unlocked);
+        const requiredWidth = unlockedFoods.length * (this.size + this.padding) + this.padding;
+        this.canvas.width = Math.min(availableWidth, requiredWidth);
+
+        this.canvas.height = this.size + 2 * this.padding;
+
+        this.draw();
+    },
+
+    handleSelection: function(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const unlockedFoods = this.foodTypes.filter(food => food.unlocked);
+        const index = Math.floor(x / (this.size + this.padding));
+        if (index >= 0 && index < unlockedFoods.length) {
+            this.selectedFoodIndex = this.foodTypes.indexOf(unlockedFoods[index]);
+            this.draw();
+        }
+    },
+
+    draw: function() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.fillStyle = 'rgba(200, 200, 200, 0.7)';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+        const unlockedFoods = this.foodTypes.filter(food => food.unlocked);
+        unlockedFoods.forEach((food, index) => {
+            const x = index * (this.size + this.padding) + this.padding;
+            const y = this.padding;
+
+            if (food === this.foodTypes[this.selectedFoodIndex]) {
+                this.ctx.fillStyle = 'rgba(100, 100, 255, 0.5)';
+                this.ctx.fillRect(x - 2, y - 2, this.size + 4, this.size + 4);
+            }
+
+            if (food.loadedImage) {
+                this.ctx.drawImage(food.loadedImage, x, y, this.size, this.size);
+            }
+        });
+    },
+
+    unlockSpecialItem: function(itemName, unlock) {
+        const food = this.foodTypes.find(f => f.name === itemName);
+        if (food) {
+            food.unlocked = unlock;
+            food.remaining = food.limit;
+            this.init();
+        }
+    },
+
+    getSelectedFood: function() {
+        return this.foodTypes[this.selectedFoodIndex];
+    }
+}
+
+const Deer = {
+    name: null,
+    level: 0,
+    age: 0,
+    bornTime: null,
+    deathAge: null,
+    dead: false,
+
+    facingLeft: false,
+
+    AGE_INTERVAL: 180,
+    
+    size: 50,
+    image: null,
+
+    x: 0,
+    y: 0,
+    speed: 2,
+
+    init : function() {
+        this.name = prompt("鹿の名前を決めてください！");
+        this.level = 0;
+        this.age = 0;
+        this.bornTime = Date.now();
+        this.size = 50;
+        this.dead = false;
+
+        this.deathAge = Math.floor(Math.random() * 6) + 18
+
+        Game.ate_amount = 0;
+        Game.updateDeerInfo();
+    },
+
+    save : function() {
+        let deerData = {
+            name: this.name,
+            level: this.level,
+            age: this.age,
+            size: this.size,
+            dead: this.dead,
+            bornTime: this.bornTime,
+            deathAge: this.deathAge,
+            ate_amount: Game.ate_amount,
+        };
+
+        localStorage.setItem("gameData", this.dead ? null : JSON.stringify(deerData));
+        console.log("Data Saved!");
+    },
+
+    load : function() {
+        let deerData = JSON.parse(localStorage.getItem("gameData"));
+        console.log("Data Loaded!");
+        console.log(deerData);
+        return deerData;
+    },
+
+    move : function(foods) {
+        if (foods.length > 0) {
+            const target = foods[0];
+            const dx = target.x - (this.x + this.size / 2);
+            const dy = target.y - (this.y + this.size / 2);
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > this.speed) {
+                const oldX = this.x;
+                this.x += (dx / distance) * this.speed;
+                this.y += (dy / distance) * this.speed;
+
+                this.facingLeft = this.x < oldX;
+            } else {
+                this.x = target.x - this.size / 2;
+                this.y = target.y - this.size / 2;
+            }
+        }
+    },
+
+    eat: function(foods) {
+        if (foods.length > 0) {
+            const target = foods[0];
+            const dx = target.x - (this.x + this.size / 2);
+            const dy = target.y - (this.y + this.size / 2);
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < (this.size / 2 + target.size / 2)) {
+                Game.changeDeerSize(this.size + 0.1);
+                Game.ate_amount++;
+
+                if (Game.ate_amount > Game.STUCKING_AMOUNT)
+                {
+                    this.death(`のどに${target.name}が詰まった`);
+                    this.ate_amount = 0;
+                }
+
+                if (target.name == "黒豆") {
+                    Deer.deathAge += target.value;
+                    GameLog.addLog(`寿命が${target.value}年増えた！`, "INFO");
+                }
+
+                foods.shift();
+            }
+        }
+    },
+
+    formatSurvivalTime: function(milliseconds) {
+        const seconds = Math.floor(milliseconds / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        const remainingHours = hours % 24;
+        const remainingMinutes = minutes % 60;
+        const remainingSeconds = seconds % 60;
+
+        let result = '';
+        if (days > 0) result += `${days}日 `;
+        if (remainingHours > 0 || days > 0) result += `${remainingHours}時間 `;
+        if (remainingMinutes > 0 || remainingHours > 0 || days > 0) result += `${remainingMinutes}分 `;
+        result += `${remainingSeconds}秒`;
+
+        return result;
+    },
+
+    death : function(reason) {
+        Deer.dead = true;
+        let time = Date.now() - Deer.bornTime;
+        reason = reason == null ? "なし" : reason;
+        GameLog.addLog(`${Deer.name}は死んでしまった！\n記録:\nレベル: ${Deer.level}\n年齢: ${Deer.age}歳\n生存時間: ${this.formatSurvivalTime(time)}\nサイズ: ${Math.floor(Deer.size * 10) / 10}\n原因: ${reason}`, "INFO");
+        Deer.init();
+    }
+}
+
+$(document).ready(function() {
+    Game.init();
+})
+
+$(window).on("beforeunload", function() {
+    Deer.save();
+});
+
+const GameLog = {
+    canvas: null,
+    ctx: null,
+    logs: [],
+    maxLogs: 5,
+    logHeight: 30,
+    padding: 5,
+    messageTypes: {
+        INFO: { color: 'blue' },
+        WARNING: { color: 'orange' },
+        ERROR: { color: 'red' }
+    },
+
+    init: function() {
+        this.canvas = document.getElementById('game-log');
+        this.ctx = this.canvas.getContext('2d');
+        this.canvas.width = 300;
+        this.canvas.height = this.maxLogs * (this.logHeight + this.padding);
+    },
+
+    addLog: function(message, type = 'INFO') {
+        if (this.logs.length >= this.maxLogs) {
+            this.logs.shift();
+        }
+        this.logs.push({ message, type });
+        this.drawLogs();
+    },
+
+    drawLogs: function() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.logs.forEach((log, index) => {
+            const { color } = this.messageTypes[log.type] || this.messageTypes.INFO;
+            this.ctx.fillStyle = color;
+            this.ctx.font = '16px Arial';
+            this.ctx.fillText(log.message, this.padding, (index + 1) * (this.logHeight + this.padding));
+        });
+    }
+};

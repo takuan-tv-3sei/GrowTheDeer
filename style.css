@@ -11,3 +11,13 @@ canvas {
     border-radius: 3px;
     display: block;
 }
+
+#game-log {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
